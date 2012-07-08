@@ -1,4 +1,5 @@
 (ns tryclojure.server
+  (:gen-class)
   (:require [noir.server :as server]
             [ring.middleware.file :refer [wrap-file]]))
 

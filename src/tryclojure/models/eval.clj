@@ -17,11 +17,12 @@
     (eval-form form sbox)))
 
 (def try-clojure-tester
-  (blanket secure-tester-without-def "tryclojure"))
+  (blanket #{} "tryclojure"))
 
 (defn make-sandbox []
   (sandbox try-clojure-tester
            :timeout 2000
+           :jvm false
            :init '(do (require '[clojure.repl :refer [doc]])
                       (future (Thread/sleep 600000)
                               (-> *ns* .getName remove-ns)))))
